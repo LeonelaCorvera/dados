@@ -6,6 +6,16 @@
 </head>
 <body>
 
+<?php 
+$dado1=random_int ( 1 , 6 );
+$dado2=random_int ( 1 , 6 );
+$dado3=random_int ( 1 , 6 );
+$dado4=random_int ( 1 , 6 );
+$dado5=random_int ( 1 , 6 );
+
+    
+?>
+
 	<style type="text/css">
 
 	#panio { 
@@ -35,9 +45,9 @@
 		      
 		   <div class="col-md-12">       
 		    
-		    <form action="valordados.php" method="post">
+		    <form action="index.php" method="post">
 
-		   		<button type="button" onclick="tirar()">tirar</button>
+		   		<button type="submit" >tirar</button>
 
 		   	</form>
 
@@ -49,7 +59,7 @@
 		      
 		   <div class="col-md-4">       
 		    
-		   		<div id="dado"><label id="Label1">1</label></div>
+		   		<div id="dado"><label id="Label1"><?php echo $dado1; ?></label></div>
 
 		   </div>       	
 
@@ -60,7 +70,7 @@
 		      
 		   <div class="col-md-4">       
 		    
-		   		<div id="dado"><label id="Label2">1</label></div>
+		   		<div id="dado"><label id="Label2"><?php echo $dado2; ?></label></div>
 
 		   </div>       	
 
@@ -70,7 +80,7 @@
 		      
 		   <div class="col-md-4">       
 		    
-		   		<div id="dado"><label id="Label3">1</label></div>
+		   		<div id="dado"><label id="Label3"><?php echo $dado3; ?></label></div>
 
 		   </div>       	
 
@@ -82,7 +92,7 @@
 		      
 		   <div class="col-md-4">       
 		    
-		   		<div id="dado"><label id="Label4">1</label></div>
+		   		<div id="dado"><label id="Label4"><?php echo $dado4; ?></label></div>
 
 		   </div>       	
 
@@ -94,7 +104,7 @@
 		      
 		   <div class="col-md-4">       
 		    
-		   		<div id="dado"><label id="Label5">1</label></div>
+		   		<div id="dado"><label id="Label5"><?php echo $dado5; ?></label></div>
 
 		   </div>       	
 
@@ -107,42 +117,3 @@
 </body>
 </html>
 
-<script type="text/javascript">
-
-	function tirar() {
-
-		document.querySelector('#Label1').innerText = '11';
-
-
-
-  var url = "valordados.php";
-  $.ajax({                                       
-     url: url,                     
-     data:{}, 
-     method : 'post',
-     dataType : 'json',
-     success: function(data)             
-     {
-      document.querySelector('#Label1').innerText =data[0];
-      document.querySelector('#Label2').innerText =data[1];
-      document.querySelector('#Label3').innerText =data[2];
-      document.querySelector('#Label4').innerText =data[3];
-      document.querySelector('#Label5').innerText =data[4];
-           
-     },
-     error: function(data)             
-     {
-      document.querySelector('#Label1').innerText =data[0];
-      document.querySelector('#Label2').innerText =data[1];
-      document.querySelector('#Label3').innerText =data[2];
-      document.querySelector('#Label4').innerText =data[3];
-      document.querySelector('#Label5').innerText =data[4];
-
-     }
-
-   });
-		
-	}
-	
-
-</script>
